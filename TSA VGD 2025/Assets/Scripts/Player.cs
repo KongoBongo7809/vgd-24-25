@@ -8,23 +8,21 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float moveSpeed = 5f;
     Vector2 movement;
-    public char[] keybinds;
+    public string color;
     //Animation
     public Animator animator;
 
     private void Update()
     {
         //Set the movement vector based on inputs
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal " + color);
+        movement.y = Input.GetAxisRaw("Vertical " + color);
 
         //Set animations according to user inputs and speed
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        if(animator.GetFloat("Speed") <= 0.05 ) { animator.enabled = false; }
-        else { animator.enabled = true; }
-        
+        animator.enabled = animator.GetFloat("Speed") > 0.05;
     }
 
     private void FixedUpdate()
