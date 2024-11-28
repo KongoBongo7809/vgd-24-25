@@ -1,0 +1,60 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": []
+  },
+  "packageFolders": {
+    "/Users/bornildas/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/bornildas/Desktop/TSA/vgd-24-25/TSA VGD 2025/UnityEngine.UI.csproj",
+      "projectName": "UnityEngine.UI",
+      "projectPath": "/Users/bornildas/Desktop/TSA/vgd-24-25/TSA VGD 2025/UnityEngine.UI.csproj",
+      "packagesPath": "/Users/bornildas/.nuget/packages/",
+      "outputPath": "/Users/bornildas/Desktop/TSA/vgd-24-25/TSA VGD 2025/Temp/obj/Debug/UnityEngine.UI/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/bornildas/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.408/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

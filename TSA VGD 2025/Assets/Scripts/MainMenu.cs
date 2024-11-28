@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
     public void setPlayerAmt(int amt)
     {
         PlayerPrefs.SetInt("playerAmt", amt);
-        Debug.Log(PlayerPrefs.GetInt("playerAmt"));
     }
 
     //Change scenes

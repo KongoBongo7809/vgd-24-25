@@ -7,8 +7,12 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     Vector2 movement;
     public string color;
+
     //Animation
     public Animator animator;
+
+    //Collision
+    public BoxCollider2D box;
 
     private void Update()
     {
@@ -17,10 +21,25 @@ public class Player : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical " + color);
 
         //Set animations according to user inputs and speed
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+        if (movement.sqrMagnitude != 2)
+        {
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+        }
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.enabled = animator.GetFloat("Speed") > 0.05;
+
+        //Adjust box colliders according to direction player is facing
+        if (Mathf.Abs(movement.x) < Mathf.Abs(movement.y) && movement.sqrMagnitude != 0)
+        {
+            box.size = new Vector2(1.5f, 2.5f);
+            box.offset = new Vector2(0, 0);
+        }
+        else if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y) && movement.sqrMagnitude != 0)
+        {
+            box.size = new Vector2(2.7f, 1.3f);
+            box.offset = new Vector2(0f, -0.35f);
+        }
     }
 
     private void FixedUpdate()
