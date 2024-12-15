@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Pointer : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private Transform player;
-    public float hideDistance;
+    public Transform target;
+    public Transform player;
+    public float hideDistance = 5.3f;
 
     private void Update()
     {

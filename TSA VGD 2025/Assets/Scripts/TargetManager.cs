@@ -1,20 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEditor;
 
 public class TargetManager : MonoBehaviour
 {
+    //Array of all possible targets
     public Transform[] targets;
+    //Index of current targets
+    private int[] indices;
 
-    //Return a random target from the array
-    public Transform ChooseNewTarget()
+    public void Start()
     {
-        return targets[Random.Range(0, targets.Length - 1)];
+        indices = new int[targets.Length];
+        Array.Fill(indices, 0);
     }
 
-    public void RemoveTarget(Transform target)
+    //Choose a random target from the array
+    public int ChooseRandomTargetIndex()
     {
-        ArrayUtility.Remove(ref targets, target);
+        int rndIndex;
+        do
+        {
+            rndIndex = UnityEngine.Random.Range(0, targets.Length);
+        }
+        while (indices[rndIndex] != 0);
+
+        return rndIndex;
+    }
+
+    //Get a target from its index
+    public Transform GetTargetFromIndex(int index)
+    {
+        return targets[index];
+    }
+
+    //Add a new target to the index array
+    public void AddTarget(int target, int player)
+    {
+        indices[target] = player;
+    }
+
+    //Remove a target from the index array
+    public void RemoveTarget(int target)
+    {
+        indices[target] = 0;
     }
 }
