@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Pointer : MonoBehaviour
 {
+    public float hideDistance = 5.3f;
+    [HideInInspector]
+    public int index;
     public Transform target;
     public Transform player;
-    public float hideDistance = 5.3f;
+
 
     private void Update()
     {

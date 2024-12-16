@@ -16,9 +16,16 @@ public class PointerManager : MonoBehaviour
         targetManager.AddTarget(index, playerId);
     }
 
+    //Add a pointer to the player with a random index
+    public void AddRandomPointer()
+    {
+        AddPointer(targetManager.ChooseRandomTargetIndex());
+    }
+
+
     public void RemovePointer(GameObject pointer)
     {
-        targetManager.RemoveTarget(pointer.)
+        targetManager.ClearTarget(pointer.GetComponent<Pointer>().index);
         Destroy(pointer);
     }
 }
