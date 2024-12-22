@@ -9,17 +9,19 @@ public class Pointer : MonoBehaviour
     public int index;
     public Transform target;
     public Transform player;
-
+    public bool reachedTarget;
 
     private void Update()
     {
         Vector3 dir = target.position - player.position;
         if(dir.magnitude < hideDistance)
         {
+            reachedTarget = true;
             SetChildrenActive(false);
         }
         else
         {
+            reachedTarget = false;
             SetChildrenActive(true);
             transform.gameObject.SetActive(true);
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
