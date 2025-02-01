@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Pointer : MonoBehaviour
 {
     public float hideDistance = 5.3f;
-    [HideInInspector]
-    public int index;
-    public Transform target;
-    public Transform player;
-    public bool reachedTarget;
+    private int index;
+    private Transform target;
+    private Transform player;
+    private bool reachedTarget;
 
     private void Update()
     {
@@ -42,6 +39,38 @@ public class Pointer : MonoBehaviour
         {
             child.gameObject.SetActive(val);
         }
+    }
+
+    //Getter methods
+    public int GetIndex()
+    {
+        return index;
+    }
+
+    public Transform GetTarget()
+    {
+        return target;
+    }
+
+    public Transform GetPlayer()
+    {
+        return player;
+    }
+
+    public bool HasReachedTarget()
+    {
+        return reachedTarget;
+    }
+
+    //Setter methods
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
+    public void SetPlayer(Transform player)
+    {
+        this.player = player;
     }
 
 }

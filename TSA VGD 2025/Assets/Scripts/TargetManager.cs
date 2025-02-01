@@ -29,13 +29,13 @@ public class TargetManager : MonoBehaviour
     }
 
     //Get a target transform from its index
-    public Transform GetTargetFromIndex(int index)
+    public Transform GetTarget(int index)
     {
         return targets[index];
     }
 
     //Get an index from the target
-    public int GetIndexFromTarget(Transform target)
+    public int GetTargetIndex(Transform target)
     {
         return Array.IndexOf(targets, target);
     }
