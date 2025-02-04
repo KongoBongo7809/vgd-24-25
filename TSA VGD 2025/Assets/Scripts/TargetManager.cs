@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 //Script purpose: manage which targets belong to which player
@@ -7,12 +9,14 @@ public class TargetManager : MonoBehaviour
     //Array of all possible targets
     public Transform[] targets;
     //Index of current targets
-    private int[] indices;
+    private List<int> indices = new List<int>();
 
     private void Start()
     {
-        indices = new int[targets.Length];
-        Array.Fill(indices, 0);
+        for (int i = 0; i < targets.Length; i++)
+        {
+            indices.Add(0);
+        }
     }
 
     //Choose a random target from the array that isn't already taken
@@ -53,13 +57,8 @@ public class TargetManager : MonoBehaviour
     }
 
     //Remove a target from the index array
-    public void ClearTarget(int target)
-    {
-        indices[target] = 0;
-    }
-    
     public void RemoveTarget(int target)
     {
-        indices[target] = -1;
+        indices[target] = 0;
     }
 }

@@ -1,83 +1,82 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PointerManager : MonoBehaviour
 {
+    public Transform[] players;
+
     public GameObject pointerDefault;
-    public int playerId;
     public TargetManager targetManager;
     public float waitTime = 3f;
     private List<Pointer> pointers = new List<Pointer>();
-    private bool activeCoroutine = false;
+    private List<bool> activeCoroutine = new List<bool>();
 
     public void Start()
     {
-        AddRandomPointer();
-        /*Pointer[] startPointers = transform.GetComponentsInChildren<Pointer>();
-        foreach (Pointer p in startPointers)
+        foreach (Transform plyr in players)
         {
-            pointers.Add(p);
+            AddRandomPointer(plyr);
+            activeCoroutine.Add(false);
         }
-        foreach (Pointer p in transform.GetComponentsInChildren<Pointer>())
-        {
-            pointers.Add(p);
-        }*/
     }
 
     public void Update()
     {
-        foreach (Pointer p in pointers)
+        foreach (Transform plyr in players)
         {
-            //Check if player has reached target, is not moving and does not have an active coroutine
-            if (p.HasReachedTarget() && transform.GetComponent<Animator>().GetFloat("Speed") < 0.05 && !activeCoroutine)
+            foreach (Pointer pntr in pointers)
             {
-                StartCoroutine(Delivery(p));
-                activeCoroutine = true;
+                //Check if player has reached target, is not moving and does not have an active coroutine
+                if (pntr.HasReachedTarget() && plyr.GetComponent<Animator>().GetFloat("Speed") < 0.05 && !activeCoroutine[Array.IndexOf(players, plyr)])
+                {
+                    StartCoroutine(Delivery(pntr, plyr));
+                    activeCoroutine[Array.IndexOf(players, plyr)] = true;
+                }
             }
         }
     }
 
     //Add a pointer to the player with a target
-    public void AddPointer(int index)
+    public void AddPointer(int index, Transform plyr)
     {
-        GameObject newPointer = Instantiate(pointerDefault, transform);
+        GameObject newPointer = Instantiate(pointerDefault, plyr);
         newPointer.GetComponent<Pointer>().SetTarget(targetManager.GetTarget(index));
-        newPointer.GetComponent<Pointer>().SetPlayer(transform);
-        targetManager.AddTarget(index, playerId);
+        newPointer.GetComponent<Pointer>().SetPlayer(plyr);
+        targetManager.AddTarget(index, Array.IndexOf(players, plyr)+1);
         pointers.Add(newPointer.GetComponent<Pointer>());
     }
 
     //Add a pointer to the player with a random index
-    public void AddRandomPointer()
+    public void AddRandomPointer(Transform plyr)
     {
-        AddPointer(targetManager.ChooseRandomTargetIndex());
+        AddPointer(targetManager.ChooseRandomTargetIndex(), plyr);
     }
 
     //Remove a pointer given the game object
     public void RemovePointer(GameObject pointer)
     {
-        Pointer p = pointer.GetComponent<Pointer>();
+        Pointer pntr = pointer.GetComponent<Pointer>();
 
-        pointers.Remove(p);
-        targetManager.ClearTarget(p.GetIndex());
+        pointers.Remove(pntr);
+        targetManager.RemoveTarget(pntr.GetIndex());
         Destroy(pointer);
     }
 
     //Initiate delivery sequence
-    IEnumerator Delivery(Pointer p)
+    IEnumerator Delivery(Pointer pntr, Transform plyr)
     {
-        Debug.Log($"Start coroutine for {playerId}");
 
         Debug.Log("Reached target");
         //Create animation for delivery
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Finished sequence");
-        RemovePointer(p.gameObject);
+        RemovePointer(pntr.gameObject);
         Debug.Log("Removed current pointer");
-        AddRandomPointer();
+        AddRandomPointer(plyr);
         Debug.Log("Added new pointer");
-        activeCoroutine = false;
+        activeCoroutine[Array.IndexOf(players, plyr)] = false;
         Debug.Log("Ended coroutine");
     }
 }
