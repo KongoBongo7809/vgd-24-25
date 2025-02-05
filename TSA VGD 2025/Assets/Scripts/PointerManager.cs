@@ -6,6 +6,7 @@ using UnityEngine;
 public class PointerManager : MonoBehaviour
 {
     public Transform[] players;
+    public int pointValue = 10;
 
     public GameObject pointerDefault;
     public TargetManager targetManager;
@@ -24,16 +25,14 @@ public class PointerManager : MonoBehaviour
 
     public void Update()
     {
-        foreach (Transform plyr in players)
+        foreach (Pointer pntr in pointers)
         {
-            foreach (Pointer pntr in pointers)
+            Transform plyr = pntr.transform.root;
+            //Check if player has reached target, is not moving and does not have an active coroutine
+            if (pntr.HasReachedTarget() && plyr.GetComponent<Animator>().GetFloat("Speed") < 0.05 && !activeCoroutine[Array.IndexOf(players, plyr)])
             {
-                //Check if player has reached target, is not moving and does not have an active coroutine
-                if (pntr.HasReachedTarget() && plyr.GetComponent<Animator>().GetFloat("Speed") < 0.05 && !activeCoroutine[Array.IndexOf(players, plyr)])
-                {
-                    StartCoroutine(Delivery(pntr, plyr));
-                    activeCoroutine[Array.IndexOf(players, plyr)] = true;
-                }
+                StartCoroutine(Delivery(pntr, plyr));
+                activeCoroutine[Array.IndexOf(players, plyr)] = true;
             }
         }
     }
@@ -67,16 +66,11 @@ public class PointerManager : MonoBehaviour
     //Initiate delivery sequence
     IEnumerator Delivery(Pointer pntr, Transform plyr)
     {
-
-        Debug.Log("Reached target");
         //Create animation for delivery
         yield return new WaitForSeconds(waitTime);
-        Debug.Log("Finished sequence");
+        plyr.GetComponent<Player>().UpdatePoints(pointValue);
         RemovePointer(pntr.gameObject);
-        Debug.Log("Removed current pointer");
         AddRandomPointer(plyr);
-        Debug.Log("Added new pointer");
         activeCoroutine[Array.IndexOf(players, plyr)] = false;
-        Debug.Log("Ended coroutine");
     }
 }

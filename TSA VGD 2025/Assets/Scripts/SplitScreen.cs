@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SplitScreen : MonoBehaviour
 {
     //Camera and border objects
+    public Player p3;
     public Camera cam1, cam2, cam3, cam4;
     public RawImage borderHoriz, borderVert1, borderVert2;
+    public GameObject dollarLeft, dollarCenter, dollarRight;
+    public TextMeshProUGUI dollarTextCenter;
 
     private void Start()
     {
@@ -26,6 +30,11 @@ public class SplitScreen : MonoBehaviour
             borderVert1.gameObject.SetActive(true);
             borderVert2.gameObject.SetActive(true);
             borderHoriz.gameObject.SetActive(false);
+
+            //Disable dollar counters
+            dollarLeft.SetActive(false);
+            dollarCenter.SetActive(false);
+            dollarRight.SetActive(false);
         }
         //Three player setup
         else if(PlayerPrefs.GetInt("playerAmt") == 3)
@@ -42,6 +51,13 @@ public class SplitScreen : MonoBehaviour
             borderVert1.gameObject.SetActive(true);
             borderVert2.gameObject.SetActive(false);
             borderHoriz.gameObject.SetActive(true);
+
+            //Disable dollar counters
+            dollarLeft.SetActive(false);
+            dollarCenter.SetActive(true);
+            dollarRight.SetActive(false);
+            p3.dollarCounter = dollarTextCenter;
+
         }
         //Four player setup
         else if(PlayerPrefs.GetInt("playerAmt") == 4) {
@@ -56,6 +72,11 @@ public class SplitScreen : MonoBehaviour
             borderVert1.gameObject.SetActive(true);
             borderVert2.gameObject.SetActive(true);
             borderHoriz.gameObject.SetActive(true);
+
+            //Disable dollar counters
+            dollarLeft.SetActive(true);
+            dollarCenter.SetActive(false);
+            dollarRight.SetActive(true);
         }
     }
 }

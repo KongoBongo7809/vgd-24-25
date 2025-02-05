@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class Player : MonoBehaviour
 
     //Collision
     public BoxCollider2D box;
+
+    //Points
+    private int points = 0;
+    public TextMeshProUGUI dollarCounter;
 
     private void Update()
     {
@@ -40,11 +45,19 @@ public class Player : MonoBehaviour
             box.size = new Vector2(2.7f, 1.3f);
             box.offset = new Vector2(0f, -0.35f);
         }
+
+        //Update point counter
+        dollarCounter.SetText(points.ToString());
     }
 
     private void FixedUpdate()
     {
         //Move the rigidbody accordingly with speed and time factored in
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public void UpdatePoints(int amt)
+    {
+        points += amt;
     }
 }
