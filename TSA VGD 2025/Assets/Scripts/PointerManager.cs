@@ -43,7 +43,7 @@ public class PointerManager : MonoBehaviour
         GameObject newPointer = Instantiate(pointerDefault, plyr);
         newPointer.GetComponent<Pointer>().SetTarget(targetManager.GetTarget(index));
         newPointer.GetComponent<Pointer>().SetPlayer(plyr);
-        targetManager.AddTarget(index, Array.IndexOf(players, plyr)+1);
+        targetManager.AddTarget(index, Array.IndexOf(players, plyr) + 1);
         pointers.Add(newPointer.GetComponent<Pointer>());
     }
 

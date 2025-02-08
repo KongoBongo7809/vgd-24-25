@@ -16,8 +16,11 @@ public class Player : MonoBehaviour
     public BoxCollider2D box;
 
     //Points
-    private int points = 0;
+    public int points = 0;
     public TextMeshProUGUI dollarCounter;
+
+    //Particles
+    public ParticleSystem particleSystem;
 
     private void Update()
     {
@@ -33,6 +36,17 @@ public class Player : MonoBehaviour
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.enabled = animator.GetFloat("Speed") > 0.05;
+
+        if (animator.enabled)
+        {
+            particleSystem.Play();
+            Debug.Log("HWY IS IUTHEIUWS?");
+        }
+        else
+        {
+            particleSystem.Stop();
+            Debug.Log("NO POINT EHRE");
+        }
 
         //Adjust box colliders according to direction player is facing
         if (Mathf.Abs(movement.x) < Mathf.Abs(movement.y) && movement.sqrMagnitude != 0)
