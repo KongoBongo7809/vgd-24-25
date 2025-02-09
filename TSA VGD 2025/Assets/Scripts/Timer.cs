@@ -24,6 +24,7 @@ public class Timer : MonoBehaviour
     public GameObject[] uiEnable;
 
     private int[] leaderboard = new int[4];
+    private bool leaderboardShown = false;
     public Player red;
     public Player blue;
     public Player green;
@@ -42,9 +43,10 @@ public class Timer : MonoBehaviour
             remainingTime -= Time.deltaTime;
             if (remainingTime < 0) remainingTime = 0;
         }
-        else
+        else if (!leaderboardShown)
         {
             remainingTime = 0;
+            leaderboardShown = true;
             EndRound();
         }
         int minutes = Mathf.FloorToInt(remainingTime / 60);
@@ -77,7 +79,10 @@ public class Timer : MonoBehaviour
 
     public void EndRound()
     {
-        
+        int playerAmt = PlayerPrefs.GetInt("playerAmt");
+        if (playerAmt < 4) leaderboard[3] = -10;
+        if (playerAmt < 3) leaderboard[2] = -10;
+
         int[] places = Shuffle(new int[] {0, 1, 2, 3});
         if (leaderboard[places[0]] < leaderboard[places[1]]) Swap(places, 0, 1);
         if (leaderboard[places[2]] < leaderboard[places[3]]) Swap(places, 2, 3);
@@ -94,25 +99,20 @@ public class Timer : MonoBehaviour
             g.SetActive(true);
         }
 
-        foreach (int i in places)
+        for (int i = 0; i < places.Length; i++)
         {
-            GameObject color = returnColor(i);
-            Debug.Log(color);
-            if (color == null)
-            {
-                continue;
-            }
+            GameObject color = returnColor(places[i]);
+            if (color == null) continue;
+            color.SetActive(true);
             RectTransform rect = color.transform.GetComponent<RectTransform>();
-            rect.anchoredPosition = new Vector2(-65, 100 * (i+1) - 150);
-            leaderboardText[i].text = leaderboard[i].ToString();
+            rect.anchoredPosition = new Vector2(-65, -100 * i + 150);
+            leaderboardText[i].text = leaderboard[places[i]].ToString();
         }
-        //return places;
     }
 
     public GameObject returnColor(int i)
     {
         int playerAmt = PlayerPrefs.GetInt("playerAmt");
-        Debug.Log(i);
         switch (i)
         {
             case 0:

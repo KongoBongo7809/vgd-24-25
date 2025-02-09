@@ -1,72 +1,59 @@
 Shader "Unlit/FrostedGlass" {
     Properties {
-        // Controls how strong the blur is.
         _Radius("Blur Radius", Range(0.1, 10)) = 2.0
+        _ScreenTexture("Screen Texture", 2D) = "white" {} // Render Texture assigned here.
     }
     SubShader {
-        // Ensure the shader is drawn after opaque geometry.
         Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
         LOD 100
 
-        // GrabPass: capture what’s already rendered behind this object.
-        GrabPass {
-            Tags { "LightMode"="Always" }
-        }
-
+        // Remove GrabPass block – we are using _ScreenTexture.
         Pass {
             Tags { "LightMode"="Always" }
             CGPROGRAM
-            // Use vertex and fragment programs.
             #pragma vertex vert
             #pragma fragment frag
             #pragma fragmentoption ARB_precision_hint_fastest
             #include "UnityCG.cginc"
 
-            // Input structure for vertices.
             struct appdata_t {
                 float4 vertex : POSITION;
             };
 
-            // Interpolated data to the fragment shader.
             struct v2f {
                 float4 vertex   : SV_POSITION;
-                float4 screenPos: TEXCOORD0;  // Homogeneous screen position used by tex2Dproj
+                float4 screenPos: TEXCOORD0;  // Homogeneous screen position for texture sampling.
             };
 
-            // Blur radius value.
             float _Radius;
 
-            // Vertex shader: transforms vertices and computes screen position.
             v2f vert(appdata_t v) {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                // Compute the screen position for use with the GrabPass texture.
                 o.screenPos = ComputeScreenPos(o.vertex);
                 return o;
             }
 
-            // GrabPass texture and its texel size.
-            sampler2D _GrabTexture;
-            float4 _GrabTexture_TexelSize;
-// Fragment shader: performs a simple blur by sampling several offsets.
+            sampler2D _ScreenTexture;
+            float4 _ScreenTexture_TexelSize; // Contains texel size info for proper sampling.
+
             half4 frag(v2f i) : SV_Target {
                 half4 sum = half4(0, 0, 0, 0);
                 int count = 0;
 
-                // Macro to sample the grabbed texture.
-                // tex2Dproj automatically divides by the w component.
-                #define GRAB_SAMPLE(offsetX, offsetY) tex2Dproj(_GrabTexture, float4(i.screenPos.xy + _GrabTexture_TexelSize.xy * float2(offsetX, offsetY), i.screenPos.z, i.screenPos.w))
+                // Macro for sampling the screen texture.
+                #define SCREEN_SAMPLE(offsetX, offsetY) tex2D(_ScreenTexture, i.screenPos.xy + _ScreenTexture_TexelSize.xy * float2(offsetX, offsetY))
 
                 // Center sample.
-                sum += GRAB_SAMPLE(0, 0);
+                sum += SCREEN_SAMPLE(0, 0);
                 count++;
 
-                // Loop: for each step (incrementing by 0.1), sample 4 diagonally offset texels.
+                // Loop to sample diagonally offset texels for the blur.
                 for (float r = 0.1; r <= _Radius; r += 0.1) {
-                    sum += GRAB_SAMPLE(r, r);
-                    sum += GRAB_SAMPLE(r, -r);
-                    sum += GRAB_SAMPLE(-r, r);
-                    sum += GRAB_SAMPLE(-r, -r);
+                    sum += SCREEN_SAMPLE(r, r);
+                    sum += SCREEN_SAMPLE(r, -r);
+                    sum += SCREEN_SAMPLE(-r, r);
+                    sum += SCREEN_SAMPLE(-r, -r);
                     count += 4;
                 }
                 return sum / count;
@@ -74,6 +61,5 @@ Shader "Unlit/FrostedGlass" {
             ENDCG
         }
     }
-    // Fallback to Diffuse in case the shader cannot be used.
     FallBack "Diffuse"
 }
