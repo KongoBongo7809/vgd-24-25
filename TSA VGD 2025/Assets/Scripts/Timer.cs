@@ -32,6 +32,7 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
+        leaderboardShown = false;
         leaderboardText = new TextMeshProUGUI[] {firstPlace, secondPlace, thirdPlace, fourthPlace};
     }
 

@@ -12922,10 +12922,15 @@ MonoBehaviour:
   green: {fileID: 1678596595}
   purple: {fileID: 1316011269}
   colors: []
-  order: 00000000010000000200000003000000
+  bars:
+  - {fileID: 1069834711}
+  - {fileID: 1439950673}
+  - {fileID: 2059611597}
+  order: 
   index: 0
   timer: 0
   isCooperative: 0
+  playerAmt: 0
 --- !u!1 &272030994
 GameObject:
   m_ObjectHideFlags: 0
