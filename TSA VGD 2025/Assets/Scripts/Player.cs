@@ -40,12 +40,12 @@ public class Player : MonoBehaviour
         if (animator.enabled)
         {
             particleSystem.Play();
-            Debug.Log("HWY IS IUTHEIUWS?");
+            //Debug.Log("HWY IS IUTHEIUWS?");
         }
         else
         {
             particleSystem.Stop();
-            Debug.Log("NO POINT EHRE");
+            //Debug.Log("NO POINT EHRE");
         }
 
         //Adjust box colliders according to direction player is facing
