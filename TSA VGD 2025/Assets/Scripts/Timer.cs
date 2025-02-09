@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
     public GameObject[] uiEnable;
 
     private int[] leaderboard = new int[4];
-    private bool leaderboardShown = false;
+    public static bool leaderboardShown = false;
     public Player red;
     public Player blue;
     public Player green;

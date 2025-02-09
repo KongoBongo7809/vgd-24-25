@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     Vector2 movement;
     public string color;
+    public bool turnActive;
 
     //Animation
     public Animator animator;
@@ -20,13 +21,20 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI dollarCounter;
 
     //Particles
-    public ParticleSystem particleSystem;
 
     private void Update()
     {
         //Set the movement vector based on inputs
-        movement.x = Input.GetAxisRaw("Horizontal " + color);
-        movement.y = Input.GetAxisRaw("Vertical " + color);
+        if (Timer.leaderboardShown || !turnActive)
+        {
+            movement.x = 0;
+            movement.y = 0;
+        }
+        else
+        {
+            movement.x = Input.GetAxisRaw("Horizontal " + color);
+            movement.y = Input.GetAxisRaw("Vertical " + color);
+        }
 
         //Set animations according to user inputs and speed
         if (movement.sqrMagnitude != 2)
@@ -37,16 +45,14 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.enabled = animator.GetFloat("Speed") > 0.05;
 
-        if (animator.enabled)
+        /*if (animator.enabled)
         {
-            particleSystem.Play();
-            //Debug.Log("HWY IS IUTHEIUWS?");
+            GetComponent<ParticleSystem>().Play();
         }
         else
         {
-            particleSystem.Stop();
-            //Debug.Log("NO POINT EHRE");
-        }
+            GetComponent<ParticleSystem>().Stop();
+        }*/
 
         //Adjust box colliders according to direction player is facing
         if (Mathf.Abs(movement.x) < Mathf.Abs(movement.y) && movement.sqrMagnitude != 0)
