@@ -69,16 +69,12 @@ public class PointerManager : MonoBehaviour
     //Initiate delivery sequence
     IEnumerator Delivery(Pointer pntr, Transform plyr)
     {
-        AudioManager audioManager = FindObjectOfType<AudioManager>();
-
+        plyr.GetComponent<Player>().deliveringPizza = true;
+        yield return new WaitForSeconds(0.5f);
         GameObject newPizza = Instantiate(pizza, plyr);
         Debug.Log("Spawned pizza");
-        newPizza.GetComponent<Pizza>().setPizza(pntr.GetTarget(), plyr);
-        //Create animation for delivery
-        yield return new WaitForSeconds(waitTime);
-        plyr.GetComponent<Player>().UpdatePoints(pointValue);
-        plyr.GetComponent<Player>().pizzas--;
-        audioManager.Play("Cash");
+        newPizza.GetComponent<Pizza>().setPizza(pntr.GetTarget(), plyr, false);
+        
         RemovePointer(pntr.gameObject);
         AddRandomPointer(plyr);
         activeCoroutine[Array.IndexOf(players, plyr)] = false;

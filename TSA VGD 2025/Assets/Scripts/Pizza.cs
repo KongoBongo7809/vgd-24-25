@@ -12,17 +12,21 @@ public class Pizza : MonoBehaviour
     private Rigidbody2D rb;
     private float angle;
     private Vector3 dir;
+    public bool bakedPizza;
 
-    public void setPizza (Transform t, Transform p)
+    public void setPizza (Transform t, Transform p, bool bP)
     {
         target = t;
         player = p;
+        bakedPizza = bP;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        Physics.IgnoreCollision(target.transform.GetComponent<Collider>(), transform.GetComponent<Collider>());
 
         /*dir = target.position - player.position;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -38,8 +42,21 @@ public class Pizza : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 10)
+        Debug.Log("Collided Almost");
+        if (collision.gameObject.layer == 10 && !bakedPizza)
         {
+            player.GetComponent<Player>().UpdatePoints(10);
+            player.GetComponent<Player>().pizzas--;
+            player.GetComponent<Player>().deliveringPizza = false;
+            FindObjectOfType<AudioManager>().Play("Cash");
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Player" && bakedPizza)
+        {
+            Debug.Log("Collided");
+            target.GetComponent<Player>().pizzas++;
+            target.GetComponent<Player>().deliveringPizza = false;
+            FindObjectOfType<AudioManager>().Play("Cash");
             Destroy(gameObject);
         }
     }

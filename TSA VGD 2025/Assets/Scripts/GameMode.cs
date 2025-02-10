@@ -61,6 +61,10 @@ public class GameMode : MonoBehaviour
             index++;
             index %= order.Length;
             timer = 0;
+            for (int i = 0; i < colors.Length; i++)
+            {
+                colors[i].turnActive = (order[index] == i);
+            }
             ColorBars();
         }
     }

@@ -80,16 +80,19 @@ public class Timer : MonoBehaviour
 
     public void EndRound()
     {
-        int playerAmt = PlayerPrefs.GetInt("playerAmt");
-        if (playerAmt < 4) leaderboard[3] = -10;
-        if (playerAmt < 3) leaderboard[2] = -10;
-
         int[] places = Shuffle(new int[] {0, 1, 2, 3});
-        if (leaderboard[places[0]] < leaderboard[places[1]]) Swap(places, 0, 1);
-        if (leaderboard[places[2]] < leaderboard[places[3]]) Swap(places, 2, 3);
-        if (leaderboard[places[0]] < leaderboard[places[2]]) Swap(places, 0, 2);
-        if (leaderboard[places[1]] < leaderboard[places[3]]) Swap(places, 1, 3);
-        if (leaderboard[places[1]] < leaderboard[places[2]]) Swap(places, 1, 2);
+        int playerAmt = PlayerPrefs.GetInt("playerAmt");
+        if (PlayerPrefs.GetString("gameMode") == "Competitive")
+        {
+            if (playerAmt < 4) leaderboard[3] = -10;
+            if (playerAmt < 3) leaderboard[2] = -10;
+
+            if (leaderboard[places[0]] < leaderboard[places[1]]) Swap(places, 0, 1);
+            if (leaderboard[places[2]] < leaderboard[places[3]]) Swap(places, 2, 3);
+            if (leaderboard[places[0]] < leaderboard[places[2]]) Swap(places, 0, 2);
+            if (leaderboard[places[1]] < leaderboard[places[3]]) Swap(places, 1, 3);
+            if (leaderboard[places[1]] < leaderboard[places[2]]) Swap(places, 1, 2);
+        }
 
         foreach (GameObject g in uiDisable)
         {
@@ -100,14 +103,21 @@ public class Timer : MonoBehaviour
             g.SetActive(true);
         }
 
-        for (int i = 0; i < places.Length; i++)
+        if (PlayerPrefs.GetString("gameMode") == "Competitive")
         {
-            GameObject color = returnColor(places[i]);
-            if (color == null) continue;
-            color.SetActive(true);
-            RectTransform rect = color.transform.GetComponent<RectTransform>();
-            rect.anchoredPosition = new Vector2(-65, -100 * i + 150);
-            leaderboardText[i].text = leaderboard[places[i]].ToString();
+            for (int i = 0; i < places.Length; i++)
+            {
+                GameObject color = returnColor(places[i]);
+                if (color == null) continue;
+                color.SetActive(true);
+                RectTransform rect = color.transform.GetComponent<RectTransform>();
+                rect.anchoredPosition = new Vector2(-65, -100 * i + 150);
+                leaderboardText[i].text = leaderboard[places[i]].ToString();
+            }
+        }
+        else
+        {
+            leaderboardText[0].text = (leaderboard[0] + leaderboard[1] + leaderboard[2] + leaderboard[3]).ToString();
         }
     }
 

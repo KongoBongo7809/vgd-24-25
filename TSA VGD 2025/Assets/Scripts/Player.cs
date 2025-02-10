@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     Vector2 movement;
     public string color;
     public bool turnActive;
+    public bool deliveringPizza = false;
 
     //Animation
     public Animator animator;
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //Set the movement vector based on inputs
-        if (Timer.leaderboardShown || !turnActive)
+        if (Timer.leaderboardShown || !turnActive || deliveringPizza)
         {
             movement.x = 0;
             movement.y = 0;
@@ -46,15 +47,6 @@ public class Player : MonoBehaviour
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.enabled = animator.GetFloat("Speed") > 0.05;
-
-        /*if (animator.enabled)
-        {
-            GetComponent<ParticleSystem>().Play();
-        }
-        else
-        {
-            GetComponent<ParticleSystem>().Stop();
-        }*/
 
         //Adjust box colliders according to direction player is facing
         if (Mathf.Abs(movement.x) < Mathf.Abs(movement.y) && movement.sqrMagnitude != 0)

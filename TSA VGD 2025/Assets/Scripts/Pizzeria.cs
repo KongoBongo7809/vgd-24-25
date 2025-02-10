@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pizzeria : MonoBehaviour
 {
     public int time = 5;
+    public GameObject pizza;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,10 +18,15 @@ public class Pizzeria : MonoBehaviour
 
     IEnumerator Pizza(Player p)
     {
-        while (p.pizzas < 3)
+        int temp = 3 - p.pizzas;
+        while (temp > 0)
         {
+            p.deliveringPizza = true;
             yield return new WaitForSeconds(time);
-            p.pizzas++;
+            GameObject newPizza = Instantiate(pizza, transform);
+            newPizza.GetComponent<Pizza>().setPizza(p.transform, transform, true);
+            temp--;
         }
     }
+
 }

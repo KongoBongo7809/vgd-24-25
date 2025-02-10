@@ -167,3 +167,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   speed: 5
+  bakedPizza: 0

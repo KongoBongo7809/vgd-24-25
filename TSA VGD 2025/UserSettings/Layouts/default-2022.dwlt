@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 774
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 109
+  controlID: 88
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -442,7 +442,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1a9dffff98a6ffff5abeffff02c2ffff66cdffffc0cfffff62d6ffffb6daffff86dcffff66e7ffff70f2ffffa2f7ffff1cfbffffd87f0000c09e000098c4000090ea0000eaf50000
+      m_ExpandedIDs: 585bffffa26effffc86effff307bffffaeddffffb8deffff22e4ffff0ee6ffffbcf9ffffac6f0000e66f00005e8900004a8c0000a88c0000088d00001c8d0000d08d0000bc8e0000c88e0000f28e0000a68f0000d68f0000ec8f0000b6900000029100001e91000094910000e291000036180100b4190100a01a010098330100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -511,7 +511,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -519,16 +519,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\rudra\OneDrive\Documents\GitHub\vgd-24-25\TSA VGD 2025
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 27.901215}
-    m_SelectedIDs: 50770000
-    m_LastClickedID: 30544
-    m_ExpandedIDs: 000000001c7700001e770000207700002277000024770000267700002877000046770000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: f8720000
+    m_LastClickedID: 29432
+    m_ExpandedIDs: 00000000b4720000b6720000b8720000ba720000bc720000be720000c0720000c2720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -556,7 +556,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001c7700001e7700002077000022770000247700002677000028770000
+    m_ExpandedIDs: 00000000b4720000b6720000b8720000ba720000bc720000be720000c0720000c2720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -584,21 +584,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000542e0000bc660000cee3000000000000
+    m_ExpandedInstanceIDs: c6230000542e0000bc660000cee30000000000007e700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Main Game
-      m_OriginalName: Main Game
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 30580
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
@@ -922,7 +922,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 48, y: 48}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -1007,9 +1007,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 162.64752, y: 197.49806, z: 2.1712258}
+    m_Target: {x: -9.751825, y: -3.7900279, z: 7.6155047}
     speed: 2
-    m_Value: {x: 164.62328, y: 197.28447, z: 2.0273147}
+    m_Value: {x: -9.751825, y: -3.7900279, z: 7.6155047}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1059,9 +1059,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 305.4077
+    m_Target: 42.049934
     speed: 2
-    m_Value: 319.79865
+    m_Value: 42.049934
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1156,7 +1156,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 51074
+  m_LastSelectedObjectID: 78542
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1336,7 +1336,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 347.60004
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
