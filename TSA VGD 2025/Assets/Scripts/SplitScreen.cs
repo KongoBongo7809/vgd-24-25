@@ -26,6 +26,10 @@ public class SplitScreen : MonoBehaviour
             cam1.rect = new Rect(0, 0, 0.5f, 1);
             cam2.rect = new Rect(0.5f, 0, 0.5f, 1);
 
+            //Adjust camera zoom
+            cam1.orthographicSize = 8f;
+            cam2.orthographicSize = 8f;
+
             //Configure the borders
             borderVert1.gameObject.SetActive(true);
             borderVert2.gameObject.SetActive(true);

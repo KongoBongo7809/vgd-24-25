@@ -14,6 +14,9 @@ public class PointerManager : MonoBehaviour
     private List<Pointer> pointers = new List<Pointer>();
     private List<bool> activeCoroutine = new List<bool>();
 
+    //Animation
+    public GameObject pizza;
+
     public void Start()
     {
         foreach (Transform plyr in players)
@@ -67,6 +70,10 @@ public class PointerManager : MonoBehaviour
     IEnumerator Delivery(Pointer pntr, Transform plyr)
     {
         AudioManager audioManager = FindObjectOfType<AudioManager>();
+
+        GameObject newPizza = Instantiate(pizza, plyr);
+        Debug.Log("Spawned pizza");
+        newPizza.GetComponent<Pizza>().setPizza(pntr.GetTarget(), plyr);
         //Create animation for delivery
         yield return new WaitForSeconds(waitTime);
         plyr.GetComponent<Player>().UpdatePoints(pointValue);

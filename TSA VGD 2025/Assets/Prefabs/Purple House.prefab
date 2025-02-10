@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7858191380928314613}
   - component: {fileID: 6498726955595508068}
   - component: {fileID: 4704263878793663077}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Purple House
   m_TagString: Untagged
   m_Icon: {fileID: 0}

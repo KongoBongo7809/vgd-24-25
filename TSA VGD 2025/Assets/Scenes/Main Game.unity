@@ -5294,7 +5294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 183
+      value: 3255
       objectReference: {fileID: 0}
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -5412,6 +5412,10 @@ PrefabInstance:
       propertyPath: targetManager
       value: 
       objectReference: {fileID: 54645078}
+    - target: {fileID: 8959546268593467493, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5097237923315832784, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
     - {fileID: 8812687498232454158, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
@@ -5487,6 +5491,10 @@ PrefabInstance:
     - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
       propertyPath: m_Name
       value: Red House (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5837,6 +5845,10 @@ MonoBehaviour:
   pointerDefault: {fileID: 2492016062417664630, guid: 5a764722807b5409ca63a6dcdd02de2c, type: 3}
   targetManager: {fileID: 54645078}
   waitTime: 3
+  houseLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  pizza: {fileID: 7868206362647495937, guid: 067822d364a624dd7952177dbd3d081d, type: 3}
 --- !u!4 &59713399
 Transform:
   m_ObjectHideFlags: 0
@@ -12610,6 +12622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange House (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12634,7 +12650,6 @@ GameObject:
   - component: {fileID: 262614618}
   - component: {fileID: 262614622}
   - component: {fileID: 262614623}
-  - component: {fileID: 262614624}
   - component: {fileID: 262614625}
   - component: {fileID: 262614626}
   m_Layer: 5
@@ -12778,7 +12793,7 @@ MonoBehaviour:
   secondPlace: {fileID: 1329242532}
   thirdPlace: {fileID: 1698828883}
   fourthPlace: {fileID: 59309747}
-  remainingTime: 15
+  remainingTime: 180
   redCar: {fileID: 213789285}
   blueCar: {fileID: 1893166565}
   greenCar: {fileID: 1879510522}
@@ -12797,102 +12812,6 @@ MonoBehaviour:
   blue: {fileID: 1594636056}
   green: {fileID: 1678596595}
   purple: {fileID: 1316011269}
---- !u!82 &262614624
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262614617}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b2551d7dfb0224825a4cb2402125cfbc, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &262614625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13151,6 +13070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13296,6 +13219,10 @@ PrefabInstance:
     - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
       propertyPath: m_Name
       value: Orange House (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13477,6 +13404,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -104325,10 +104256,10 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2039
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -104444,6 +104375,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -104715,6 +104650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange House (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -104856,6 +104795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple House (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25
@@ -104935,25 +104878,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e18949d1e644670b0cc365b69f7ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 0}
   sounds:
-  - name: Main Theme
+  - name: Theme
     clip: {fileID: 8300000, guid: b2551d7dfb0224825a4cb2402125cfbc, type: 3}
     volume: 1
-    volumeVariance: 0.1
-    pitch: 0
-    pitchVariance: 0.1
+    pitch: 1
     loop: 1
-    mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Cash
     clip: {fileID: 8300000, guid: 7b564dec27b714bfd8935de562b0ee30, type: 3}
     volume: 0.5
-    volumeVariance: 0.1
-    pitch: 0
-    pitchVariance: 0.1
+    pitch: 1
     loop: 0
-    mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &434917512
 Transform:
@@ -105616,6 +105552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple House (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19
@@ -105760,7 +105700,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 567
+      value: 3639
       objectReference: {fileID: 0}
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -105870,6 +105810,10 @@ PrefabInstance:
       propertyPath: targetManager
       value: 
       objectReference: {fileID: 54645078}
+    - target: {fileID: 8959546268593467493, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5097237923315832784, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
     - {fileID: 8812687498232454158, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
@@ -106030,6 +105974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange House (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -106051,6 +105999,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -106582,6 +106534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green House (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26
@@ -106643,6 +106599,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -107596,7 +107556,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -108512,6 +108472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -108868,7 +108832,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 311
+      value: 3383
       objectReference: {fileID: 0}
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -108978,6 +108942,10 @@ PrefabInstance:
       propertyPath: targetManager
       value: 
       objectReference: {fileID: 54645078}
+    - target: {fileID: 8959546268593467493, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5097237923315832784, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
     - {fileID: 8812687498232454158, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
@@ -109013,6 +108981,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -109157,7 +109129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 894333300}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109229,6 +109201,10 @@ PrefabInstance:
     - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_Name
       value: Purple House (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -198776,6 +198752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange House (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -199125,7 +199105,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 119
+      value: 3191
       objectReference: {fileID: 0}
     - target: {fileID: 282765222169413643, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -199243,6 +199223,10 @@ PrefabInstance:
       propertyPath: targetManager
       value: 
       objectReference: {fileID: 54645078}
+    - target: {fileID: 8959546268593467493, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8812687498232454158, guid: a0ad6504fb8f24193a643c899acbe826, type: 3}
     m_RemovedGameObjects: []
@@ -199561,6 +199545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange House (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -199706,6 +199694,10 @@ PrefabInstance:
     - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
       propertyPath: m_Name
       value: Red House (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -200677,6 +200669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -200698,6 +200694,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -201069,6 +201069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -201174,6 +201178,10 @@ PrefabInstance:
     - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_Name
       value: Purple House (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -201853,6 +201861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -201914,6 +201926,10 @@ PrefabInstance:
     - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
       propertyPath: m_Name
       value: Red House (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -202104,6 +202120,10 @@ PrefabInstance:
     - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_Name
       value: Purple House (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -203424,6 +203444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple House (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -203485,6 +203509,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -203877,6 +203905,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple House (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26
@@ -204068,6 +204100,10 @@ PrefabInstance:
     - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_Name
       value: Green House (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -204335,6 +204371,10 @@ PrefabInstance:
     - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_Name
       value: Purple House (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -209772,6 +209812,10 @@ PrefabInstance:
     - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_Name
       value: Purple House (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -215233,6 +215277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple House (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -215720,6 +215768,10 @@ PrefabInstance:
     - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
       propertyPath: m_Name
       value: Orange House (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -216389,6 +216441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green House
       objectReference: {fileID: 0}
+    - target: {fileID: 5773199261074643149, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8593662244316107681, guid: 39145cc59347e4fc28b42feb2e51e657, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47
@@ -216491,6 +216547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange House
       objectReference: {fileID: 0}
+    - target: {fileID: 8951073894219929856, guid: aeef0d304b72f48168c7da03337197b2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -216553,6 +216613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House
       objectReference: {fileID: 0}
+    - target: {fileID: 6891508691835619654, guid: 105c9879755e34372ae823c65238eb4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -216574,6 +216638,10 @@ PrefabInstance:
     - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_Name
       value: Purple House
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250981529724791645, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7858191380928314613, guid: 96de08bb0ff4d47b881edac4d2daf2f7, type: 3}
       propertyPath: m_LocalPosition.x

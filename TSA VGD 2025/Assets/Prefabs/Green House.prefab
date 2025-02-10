@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8593662244316107681}
   - component: {fileID: 1454227377321015008}
   - component: {fileID: 6608166348363622628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Green House
   m_TagString: Untagged
   m_Icon: {fileID: 0}

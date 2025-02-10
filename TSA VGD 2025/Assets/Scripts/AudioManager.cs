@@ -7,8 +7,6 @@ public class AudioManager : MonoBehaviour
 
 	public static AudioManager instance;
 
-	public AudioMixerGroup mixerGroup;
-
 	public Sound[] sounds;
 
 	void Awake()
@@ -28,12 +26,15 @@ public class AudioManager : MonoBehaviour
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
 			s.source.loop = s.loop;
-
-			s.source.outputAudioMixerGroup = mixerGroup;
 		}
 	}
 
-	public void Play(string sound)
+    private void Start()
+    {
+		Play("Theme");
+    }
+
+    public void Play(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		if (s == null)
@@ -42,8 +43,8 @@ public class AudioManager : MonoBehaviour
 			return;
 		}
 
-		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+		s.source.volume = s.volume;
+		s.source.pitch = s.pitch;
 
 		s.source.Play();
 	}

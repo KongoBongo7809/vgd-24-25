@@ -6,7 +6,13 @@ public class Pointer : MonoBehaviour
     private int index;
     private Transform target;
     private Transform player;
+    private LayerMask layer;
     private bool reachedTarget;
+
+    private void Start()
+    {
+        gameObject.layer = layer;
+    }
 
     private void Update()
     {
@@ -24,7 +30,6 @@ public class Pointer : MonoBehaviour
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        
     }
 
     private void OnDrawGizmosSelected()
@@ -72,5 +77,4 @@ public class Pointer : MonoBehaviour
     {
         this.player = player;
     }
-
 }
