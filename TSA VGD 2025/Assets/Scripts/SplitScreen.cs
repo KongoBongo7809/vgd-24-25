@@ -11,7 +11,8 @@ public class SplitScreen : MonoBehaviour
     public Camera cam1, cam2, cam3, cam4;
     public RawImage borderHoriz, borderVert1, borderVert2;
     public GameObject dollarLeft, dollarCenter, dollarRight;
-    public TextMeshProUGUI dollarTextCenter;
+    public GameObject pizzaLeft, pizzaCenter, pizzaRight;
+    public TextMeshProUGUI dollarTextCenter, pizzaTextCenter;
 
     private void Start()
     {
@@ -39,6 +40,11 @@ public class SplitScreen : MonoBehaviour
             dollarLeft.SetActive(false);
             dollarCenter.SetActive(false);
             dollarRight.SetActive(false);
+
+            //Disable pizza counters
+            pizzaLeft.SetActive(false);
+            pizzaCenter.SetActive(false);
+            pizzaRight.SetActive(false);
         }
         //Three player setup
         else if(PlayerPrefs.GetInt("playerAmt") == 3)
@@ -62,6 +68,12 @@ public class SplitScreen : MonoBehaviour
             dollarRight.SetActive(false);
             p3.dollarCounter = dollarTextCenter;
 
+            //Disable pizza counters
+            pizzaLeft.SetActive(false);
+            pizzaCenter.SetActive(true);
+            pizzaRight.SetActive(false);
+            p3.pizzaCounter = pizzaTextCenter;
+                
         }
         //Four player setup
         else if(PlayerPrefs.GetInt("playerAmt") == 4) {
@@ -81,6 +93,11 @@ public class SplitScreen : MonoBehaviour
             dollarLeft.SetActive(true);
             dollarCenter.SetActive(false);
             dollarRight.SetActive(true);
+
+            //Disable pizza counters
+            pizzaLeft.SetActive(true);
+            pizzaCenter.SetActive(false);
+            pizzaRight.SetActive(true);
         }
     }
 }

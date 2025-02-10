@@ -20,7 +20,9 @@ public class Player : MonoBehaviour
     public int points = 0;
     public TextMeshProUGUI dollarCounter;
 
-    //Particles
+    //Pizza
+    public int pizzas = 3;
+    public TextMeshProUGUI pizzaCounter;
 
     private void Update()
     {
@@ -68,6 +70,7 @@ public class Player : MonoBehaviour
 
         //Update point counter
         dollarCounter.SetText(points.ToString());
+        pizzaCounter.SetText(pizzas.ToString());
     }
 
     private void FixedUpdate()

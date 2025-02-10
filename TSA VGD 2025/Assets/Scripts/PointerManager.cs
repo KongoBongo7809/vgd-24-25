@@ -32,7 +32,7 @@ public class PointerManager : MonoBehaviour
         {
             Transform plyr = pntr.transform.root;
             //Check if player has reached target, is not moving and does not have an active coroutine
-            if (pntr.HasReachedTarget() && plyr.GetComponent<Animator>().GetFloat("Speed") < 0.05 && !activeCoroutine[Array.IndexOf(players, plyr)])
+            if (pntr.HasReachedTarget() && plyr.GetComponent<Animator>().GetFloat("Speed") < 0.05 && !activeCoroutine[Array.IndexOf(players, plyr)] && plyr.GetComponent<Player>().pizzas > 0)
             {
                 StartCoroutine(Delivery(pntr, plyr));
                 activeCoroutine[Array.IndexOf(players, plyr)] = true;
@@ -77,6 +77,7 @@ public class PointerManager : MonoBehaviour
         //Create animation for delivery
         yield return new WaitForSeconds(waitTime);
         plyr.GetComponent<Player>().UpdatePoints(pointValue);
+        plyr.GetComponent<Player>().pizzas--;
         audioManager.Play("Cash");
         RemovePointer(pntr.gameObject);
         AddRandomPointer(plyr);
