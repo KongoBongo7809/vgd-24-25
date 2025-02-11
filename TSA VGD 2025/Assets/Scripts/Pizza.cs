@@ -27,7 +27,7 @@ public class Pizza : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         Physics.IgnoreCollision(target.transform.GetComponent<Collider>(), transform.GetComponent<Collider>());
-
+        Physics.IgnoreCollision(transform.GetComponent<Collider>(), player.transform.GetComponent<Collider>());
         /*dir = target.position - player.position;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
@@ -55,7 +55,10 @@ public class Pizza : MonoBehaviour
         {
             Debug.Log("Collided");
             target.GetComponent<Player>().pizzas++;
-            target.GetComponent<Player>().deliveringPizza = false;
+            if(target.GetComponent<Player>().pizzas >= 3)
+            {
+                target.GetComponent<Player>().deliveringPizza = false;
+            }
             FindObjectOfType<AudioManager>().Play("Cash");
             Destroy(gameObject);
         }

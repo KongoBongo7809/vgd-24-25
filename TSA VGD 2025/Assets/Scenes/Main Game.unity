@@ -3595,7 +3595,7 @@ MonoBehaviour:
   secondPlace: {fileID: 1329242532}
   thirdPlace: {fileID: 1698828883}
   fourthPlace: {fileID: 59309747}
-  remainingTime: 10
+  remainingTime: 180
   redCar: {fileID: 213789285}
   blueCar: {fileID: 1893166565}
   greenCar: {fileID: 1879510522}
@@ -95842,7 +95842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: d0368950bbc7542039a8460ec7b315d0, type: 2}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9411765}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.972549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

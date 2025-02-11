@@ -19,14 +19,22 @@ public class Pizzeria : MonoBehaviour
     IEnumerator Pizza(Player p)
     {
         int temp = 3 - p.pizzas;
-        while (temp > 0)
+        while (p.animator.enabled)
         {
-            p.deliveringPizza = true;
-            yield return new WaitForSeconds(time);
-            GameObject newPizza = Instantiate(pizza, transform);
-            newPizza.GetComponent<Pizza>().setPizza(p.transform, transform, true);
-            temp--;
+            yield return new WaitForEndOfFrame();
         }
+        if (Physics2D.Distance(p.GetComponent<Collider2D>(), transform.GetComponent<Collider2D>()).isOverlapped)
+        {
+            while (temp > 0)
+            {
+                p.deliveringPizza = true;
+                yield return new WaitForSeconds(time);
+                GameObject newPizza = Instantiate(pizza, transform);
+                newPizza.GetComponent<Pizza>().setPizza(p.transform, transform, true);
+                temp--;
+            }
+        }
+        
     }
 
 }
